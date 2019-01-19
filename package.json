@@ -1,0 +1,13 @@
+{
+  "name": "algos-and-data-structs",
+  "version": "1.0.0",
+  "description": "Algoritms and Data Structures",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
