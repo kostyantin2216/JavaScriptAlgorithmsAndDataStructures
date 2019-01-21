@@ -1,3 +1,4 @@
+const { defaultComparator, swap } = require('../sort-utils');
 /**
  * Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, 
  * compares adjacent pairs and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. 
@@ -22,24 +23,19 @@ function bubbleSort(arr, comparator) {
     }
 
     for (let i = 0; i < arr.length; i++) {
+        let noSwaps = true;
         for (let j = 1; j < arr.length - i; j++) {
             if (comparator(arr[j - 1], arr[j]) > 0) {
                 swap(arr, j-1, j);
+                noSwaps = false;
             }
+        }
+        if (noSwaps) {
+            break;
         }
     }
 
     return arr;
-}
-
-function defaultComparator(a, b) {
-    return a - b;
-}
-
-function swap(arr, idx1, idx2) {
-    const temp = arr[idx1];
-    arr[idx1] = arr[idx2];
-    arr[idx2] = temp;
 }
 
 module.exports = { bubbleSort };
